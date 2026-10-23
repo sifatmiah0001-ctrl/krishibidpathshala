@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>কৃষিবিদ পাঠশালা - Krishibid Pathshala</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Bengali -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Hind Siliguri', 'sans-serif'],
+                    },
+                    colors: {
+                        agri: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#27ae60', /* Custom Green matching request */
+                            600: '#219653',
+                            700: '#1e8449',
+                            800: '#196f3d',
+                            900: '#145a32',
+                        },
+                        sun: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(240, 253, 244, 0.95), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        /* Floating WhatsApp Button Animation */
+        @keyframes pulse-whatsapp {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-btn {
+            animation: pulse-whatsapp 2s infinite;
+        }
+        /* Card Hover Effects */
+        .hover-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased relative">
+
+    <!-- 1. Navigation Bar -->
+    <nav class="bg-white/95 backdrop-blur-md shadow-sm fixed w-full z-50 top-0 transition-all duration-300 border-b border-agri-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center gap-3">
+                        <img src="logo.jpg" alt="কৃষিবিদ পাঠশালা লোগো" class="w-12 h-12 object-contain rounded-full shadow-sm border border-gray-100 bg-white p-0.5" onerror="this.src='https://placehold.co/100x100/27ae60/ffffff?text=Logo'">
+                        <span class="font-bold text-2xl text-agri-800">কৃষিবিদ পাঠশালা</span>
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-agri-600 font-semibold transition-colors text-lg">হোম</a>
+                    <a href="#instructor" class="text-gray-700 hover:text-agri-600 font-semibold transition-colors text-lg">ইনস্ট্রাক্টর</a>
+                    <a href="#courses" class="text-gray-700 hover:text-agri-600 font-semibold transition-colors text-lg">কোর্সসমূহ</a>
+                    <a href="#books" class="text-gray-700 hover:text-agri-600 font-semibold transition-colors text-lg">বইসমূহ</a>
+                    <a href="#contact" class="text-gray-700 hover:text-agri-600 font-semibold transition-colors text-lg">যোগাযোগ</a>
+                    <a href="#admission" class="bg-agri-600 text-white px-6 py-2.5 rounded-full font-medium hover:bg-agri-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">ভর্তি হোন</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-agri-700 hover:text-agri-900 focus:outline-none p-2 bg-agri-50 rounded-lg">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#home" class="block px-3 py-3 text-base font-semibold text-gray-700 hover:text-agri-600 hover:bg-agri-50 rounded-lg transition-colors">হোম</a>
+                <a href="#instructor" class="block px-3 py-3 text-base font-semibold text-gray-700 hover:text-agri-600 hover:bg-agri-50 rounded-lg transition-colors">ইনস্ট্রাক্টর</a>
+                <a href="#courses" class="block px-3 py-3 text-base font-semibold text-gray-700 hover:text-agri-600 hover:bg-agri-50 rounded-lg transition-colors">কোর্সসমূহ</a>
+                <a href="#books" class="block px-3 py-3 text-base font-semibold text-gray-700 hover:text-agri-600 hover:bg-agri-50 rounded-lg transition-colors">বইসমূহ</a>
+                <a href="#contact" class="block px-3 py-3 text-base font-semibold text-gray-700 hover:text-agri-600 hover:bg-agri-50 rounded-lg transition-colors">যোগাযোগ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. Hero Section -->
+    <section id="home" class="hero-bg pt-32 pb-24 md:pt-40 md:pb-32 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-block px-5 py-2 bg-sun-100 text-sun-700 rounded-full font-bold text-sm md:text-base mb-6 border border-sun-300 shadow-sm animate-bounce">
+                <i class="fa-solid fa-seedling mr-2"></i> কৃষি বিষয়ক ক্যারিয়ার গড়ার নির্ভরযোগ্য মাধ্যম
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6 drop-shadow-sm">
+                NTRCA ও কৃষি চাকরির <br><span class="text-agri-600">সেরা প্রস্তুতি</span> এখন কৃষিবিদ পাঠশালায়
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-700 leading-relaxed max-w-3xl mx-auto mb-10 font-medium">
+                সঠিক গাইডলাইন, লাইভ ক্লাস এবং মানসম্মত স্টাডি ম্যাটেরিয়ালের মাধ্যমে আপনার সরকারি চাকরির স্বপ্ন পূরণ করুন।
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#courses" class="bg-agri-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-agri-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                    কোর্সগুলো দেখুন <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Instructor Section -->
+    <section id="instructor" class="py-24 bg-white relative border-b border-gray-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 border-b-4 border-agri-500 inline-block pb-2">
+                    ইনস্ট্রাক্টর পরিচিতি
+                </h2>
+                <p class="text-lg text-gray-600 mt-4 font-medium">যার নির্দেশনায় আপনি এগিয়ে যাবেন সফলতার চূড়ায়</p>
+            </div>
+            
+            <div class="bg-gradient-to-br from-agri-50 to-white rounded-3xl shadow-2xl border border-agri-100 overflow-hidden hover-card">
+                <div class="flex flex-col md:flex-row items-center">
+                    <!-- Image -->
+                    <div class="w-full md:w-2/5 relative">
+                        <img src="instructor.jpg" alt="মোঃ সিফাত মিঞা" class="w-full h-96 md:h-[450px] object-cover object-top" onerror="this.src='https://placehold.co/600x800/27ae60/ffffff?text=Instructor'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent md:hidden"></div>
+                        <div class="absolute bottom-6 left-6 md:hidden text-white">
+                            <h3 class="text-3xl font-bold">মোঃ সিফাত মিঞা</h3>
+                            <p class="font-medium text-sun-300">প্রভাষক, কৃষি</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Info -->
+                    <div class="w-full md:w-3/5 p-8 md:p-12">
+                        <div class="hidden md:block mb-6">
+                            <h3 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">মোঃ সিফাত মিঞা</h3>
+                            <p class="text-xl font-bold text-agri-700 bg-agri-100 inline-block px-5 py-1.5 rounded-full border border-agri-200">
+                                প্রভাষক, কৃষি (হেমনগর ডিগ্রি কলেজ)
+                            </p>
+                        </div>
+                        
+                        <!-- Mobile extra designation part -->
+                        <div class="md:hidden mb-6">
+                             <p class="text-lg font-bold text-agri-700 bg-agri-100 inline-block px-4 py-1 rounded-full border border-agri-200">
+                                হেমনগর ডিগ্রি কলেজ
+                            </p>
+                        </div>
+                        
+                        <div class="space-y-6 text-lg text-gray-700 mt-4 md:mt-0">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-sun-100 p-3 rounded-full text-sun-600 shrink-0 shadow-sm border border-sun-200">
+                                    <i class="fa-solid fa-graduation-cap text-xl"></i>
+                                </div>
+                                <p class="leading-relaxed font-medium mt-1">স্নাতক (সম্মান) ও স্নাতকোত্তর (উদ্ভিদ রোগতত্ত্ব), বাংলাদেশ কৃষি বিশ্ববিদ্যালয়।</p>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="bg-agri-100 p-3 rounded-full text-agri-600 shrink-0 shadow-sm border border-agri-200">
+                                    <i class="fa-solid fa-award text-xl"></i>
+                                </div>
+                                <p class="leading-relaxed font-bold mt-1 text-gray-800">১৮তম শিক্ষক নিবন্ধনে কলেজ পর্যায়ে মেধাক্রম ২য় এবং স্কুল পর্যায়ে ৩০তম।</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 pt-8 border-t border-gray-200">
+                            <p class="text-gray-500 italic text-lg border-l-4 border-sun-400 pl-4">"সঠিক গাইডলাইন এবং আপনার নিরলস পরিশ্রমে সাফল্য আসবেই। কৃষিবিদ পাঠশালায় আপনাকে স্বাগতম।"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Courses Section -->
+    <section id="courses" class="py-24 bg-gray-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 border-b-4 border-sun-400 inline-block pb-2">
+                    আমাদের চলমান কোর্সসমূহ
+                </h2>
+                <p class="text-lg text-gray-600 font-medium mt-4">আপনার প্রস্তুতির ধরন অনুযায়ী সেরা কোর্সটি বেছে নিন এবং আজই যুক্ত হোন।</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                <!-- Card 1: Standard Batch -->
+                <div class="bg-white rounded-3xl p-8 hover-card border border-gray-200 shadow-xl relative overflow-hidden flex flex-col group">
+                    <div class="absolute top-0 right-0 bg-agri-500 text-white text-sm font-bold px-5 py-2 rounded-bl-xl shadow-md">স্ট্যান্ডার্ড ব্যাচ</div>
+                    
+                    <h3 class="text-2xl md:text-3xl font-bold text-agri-900 mt-4 mb-3 leading-tight group-hover:text-agri-600 transition-colors">
+                        NTRCA কৃষি সহকারী শিক্ষক <br>স্ট্যান্ডার্ড ব্যাচ
+                    </h3>
+                    <div class="h-1 w-20 bg-sun-400 rounded-full mb-6"></div>
+                    
+                    <ul class="space-y-4 mb-8 flex-grow text-gray-700 font-medium text-lg">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-agri-500 text-xl"></i> <div><strong>কোর্স ডিউরেশন:</strong> ২ মাস (রিটেন পর্যন্ত সাপোর্ট)</div></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-agri-500 text-xl"></i> <div><strong>লাইভ ক্লাস:</strong> ১০+ টি (অনলাইন)</div></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-agri-500 text-xl"></i> <div><strong>রেকর্ডেড ক্লাস:</strong> ২৫+</div></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-agri-500 text-xl"></i> <div><strong>মডেল টেস্ট:</strong> ১০ টি</div></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-agri-500 text-xl"></i> <div><strong>ক্লাস নোট:</strong> PDF materials</div></li>
+                    </ul>
+                    
+                    <div class="bg-gradient-to-r from-gray-50 to-agri-50 p-6 rounded-2xl text-center mb-6 border border-gray-200">
+                        <p class="text-gray-500 font-semibold mb-1 uppercase tracking-wider text-sm">কোর্স ফি</p>
+                        <p class="text-4xl font-bold text-agri-800">৳ ৬০০ <span class="text-lg font-normal text-gray-600">মাত্র</span></p>
+                        <p class="text-sm text-agri-800 font-bold mt-3 bg-white py-1.5 px-4 rounded-full inline-block border border-agri-200 shadow-sm"><i class="fa-solid fa-gift text-agri-500 mr-1"></i> স্পেশাল অফার প্রথম ৫০ জন</p>
+                    </div>
+                    <a href="#admission" class="w-full block text-center bg-gray-900 text-white py-4 rounded-full font-bold hover:bg-agri-700 transition-colors shadow-lg text-lg">ভর্তি হোন <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Card 2: Special Batch -->
+                <div class="bg-white rounded-3xl p-8 hover-card border-2 border-agri-500 shadow-2xl relative overflow-hidden flex flex-col lg:-translate-y-4">
+                    <div class="absolute top-0 right-0 bg-red-500 text-white text-sm font-bold px-5 py-2 rounded-bl-xl shadow-md animate-pulse">স্পেশাল ব্যাচ</div>
+                    <div class="absolute -top-10 -left-10 w-32 h-32 bg-agri-100 rounded-full opacity-50"></div>
+                    
+                    <h3 class="text-2xl md:text-3xl font-bold text-agri-900 mt-4 mb-3 leading-tight relative z-10">
+                        NTRCA কৃষি (সহকারী শিক্ষক ও প্রভাষক) প্রস্তুতির স্পেশাল ব্যাচ
+                    </h3>
+                    <div class="h-1 w-20 bg-agri-500 rounded-full mb-6 relative z-10"></div>
+                    
+                    <ul class="space-y-4 mb-8 flex-grow text-gray-700 font-medium text-lg relative z-10">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-sun-500 text-xl"></i> <div><strong>কোর্স ডিউরেশন:</strong> ৪ মাস (রিটেন পর্যন্ত সাপোর্ট)</div></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-sun-500 text-xl"></i> <div><strong>লাইভ ক্লাস:</strong> ২০+ টি (অনলাইন)</div></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-sun-500 text-xl"></i> <div><strong>রেকর্ডেড ক্লাস:</strong> ৩০+</div></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-sun-500 text-xl"></i> <div><strong>মডেল টেস্ট:</strong> ১০ টি</div></li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-sun-500 text-xl"></i> <div><strong>ক্লাস নোট:</strong> PDF materials</div></li>
+                    </ul>
+                    
+                    <div class="bg-gradient-to-r from-agri-50 to-sun-50 p-6 rounded-2xl text-center mb-6 border border-agri-200 relative z-10">
+                        <p class="text-gray-500 font-semibold mb-1 uppercase tracking-wider text-sm">কোর্স ফি</p>
+                        <p class="text-4xl font-bold text-agri-800">৳ ১৫০০ <span class="text-lg font-normal text-gray-600">মাত্র</span></p>
+                        <p class="text-sm text-agri-800 font-bold mt-3 bg-white py-1.5 px-4 rounded-full inline-block border border-sun-300 shadow-sm"><i class="fa-solid fa-gift text-sun-500 mr-1"></i> স্পেশাল অফার প্রথম ২০ জন</p>
+                    </div>
+                    <a href="#admission" class="w-full block text-center bg-agri-600 text-white py-4 rounded-full font-bold hover:bg-agri-700 transition-colors shadow-lg text-lg relative z-10">ভর্তি হোন <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Books Section -->
+    <section id="books" class="py-24 bg-white relative border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 border-b-4 border-agri-400 inline-block pb-2">
+                    আমাদের প্রকাশিত বইসমূহ
+                </h2>
+                <p class="text-lg text-gray-700 mt-4 font-medium">আপনার প্রস্তুতিকে শতভাগ পূর্ণাঙ্গ করতে আমাদের স্পেশাল বইগুলো সংগ্রহ করুন।</p>
+            </div>
+
+            <!-- CSS Grid: 1fr on mobile, 2fr on sm, 4fr on lg -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <!-- Book 1 -->
+                <div class="bg-white rounded-2xl p-4 shadow-lg hover-card border border-gray-100 flex flex-col items-center text-center">
+                    <div class="w-full h-80 overflow-hidden rounded-xl mb-5 relative bg-gray-50 border border-gray-200">
+                        <img src="book1.jpg" alt="এগ্রিকালচার বেসিক" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/400x600/27ae60/ffffff?text=Book+1'">
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-4 flex-grow">এগ্রিকালচার বেসিক</h3>
+                    <a href="#admission" class="w-full text-agri-700 font-bold hover:text-white transition-colors bg-agri-50 hover:bg-agri-600 px-6 py-3 rounded-full text-sm border border-agri-200 shadow-sm">অর্ডার করুন <i class="fa-solid fa-cart-shopping ml-1"></i></a>
+                </div>
+
+                <!-- Book 2 -->
+                <div class="bg-white rounded-2xl p-4 shadow-lg hover-card border border-gray-100 flex flex-col items-center text-center">
+                    <div class="w-full h-80 overflow-hidden rounded-xl mb-5 relative bg-gray-50 border border-gray-200">
+                        <img src="book2.jpg" alt="এগ্রিকালচার বেসিক MCQ Question Bank" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/400x600/27ae60/ffffff?text=Book+2'">
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-4 flex-grow">এগ্রিকালচার বেসিক<br><span class="text-base text-gray-600 mt-1 block font-medium">MCQ Question Bank</span></h3>
+                    <a href="#admission" class="w-full text-agri-700 font-bold hover:text-white transition-colors bg-agri-50 hover:bg-agri-600 px-6 py-3 rounded-full text-sm border border-agri-200 shadow-sm">অর্ডার করুন <i class="fa-solid fa-cart-shopping ml-1"></i></a>
+                </div>
+
+                <!-- Book 3 -->
+                <div class="bg-white rounded-2xl p-4 shadow-lg hover-card border border-gray-100 flex flex-col items-center text-center">
+                    <div class="w-full h-80 overflow-hidden rounded-xl mb-5 relative bg-gray-50 border border-gray-200">
+                        <img src="book3.jpg" alt="এগ্রিকালচার বেসিক NTRCA" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/400x600/27ae60/ffffff?text=Book+3'">
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-4 flex-grow">এগ্রিকালচার বেসিক<br><span class="text-base text-gray-600 mt-1 block font-medium">NTRCA</span></h3>
+                    <a href="#admission" class="w-full text-agri-700 font-bold hover:text-white transition-colors bg-agri-50 hover:bg-agri-600 px-6 py-3 rounded-full text-sm border border-agri-200 shadow-sm">অর্ডার করুন <i class="fa-solid fa-cart-shopping ml-1"></i></a>
+                </div>
+
+                <!-- Book 4 -->
+                <div class="bg-white rounded-2xl p-4 shadow-lg hover-card border border-gray-100 flex flex-col items-center text-center">
+                    <div class="w-full h-80 overflow-hidden rounded-xl mb-5 relative bg-gray-50 border border-gray-200">
+                        <img src="book4.jpg" alt="এগ্রিকালচার বেসিক NTRCA Question Solution" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/400x600/27ae60/ffffff?text=Book+4'">
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-4 flex-grow">এগ্রিকালচার বেসিক<br><span class="text-base text-gray-600 mt-1 block font-medium">NTRCA Question Solution</span></h3>
+                    <a href="#admission" class="w-full text-agri-700 font-bold hover:text-white transition-colors bg-agri-50 hover:bg-agri-600 px-6 py-3 rounded-full text-sm border border-agri-200 shadow-sm">অর্ডার করুন <i class="fa-solid fa-cart-shopping ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Admission & Payment Section -->
+    <section id="admission" class="py-24 bg-agri-50 relative border-t border-gray-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 border-b-4 border-agri-500 inline-block pb-2">
+                    ভর্তি ও পেমেন্ট নিয়মাবলী
+                </h2>
+                <p class="mt-4 text-lg text-gray-600 font-medium">খুব সহজেই আমাদের কোর্স বা বইয়ের জন্য পেমেন্ট করতে পারেন।</p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200 transform transition-all hover:shadow-[0_20px_50px_rgba(39,174,96,0.1)]">
+                <div class="bg-gradient-to-r from-[#e2136e] to-[#c70f5e] p-6 text-center text-white relative">
+                    <h3 class="text-2xl md:text-3xl font-bold flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-money-bill-wave"></i> বিকাশ পেমেন্ট (bKash)
+                    </h3>
+                </div>
+                
+                <div class="p-8 md:p-12">
+                    <div class="text-center mb-10">
+                        <p class="text-xl text-gray-700 font-semibold mb-6">কোর্স ফি বা বইয়ের মূল্য পাঠাতে নিচের নম্বরে বিকাশ (Send Money) করুন:</p>
+                        
+                        <!-- Number Display Highlighted -->
+                        <div class="inline-block bg-pink-50 border-4 border-dashed border-[#e2136e] rounded-2xl px-8 md:px-12 py-6 relative shadow-lg transform hover:scale-105 transition-transform">
+                            <span class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#e2136e] text-white text-sm font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-md">
+                                Personal Account
+                            </span>
+                            <div class="flex items-center justify-center gap-4">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/u/uf/Bkash_logo.svg/512px-Bkash_logo.svg.png" alt="Bkash" class="w-12 md:w-16 object-contain drop-shadow-md">
+                                <span class="text-3xl md:text-5xl font-black text-[#e2136e] tracking-wider">01515256943</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-agri-50 rounded-2xl p-6 md:p-8 border border-agri-100 shadow-inner">
+                        <h4 class="font-bold text-agri-900 mb-4 text-xl flex items-center gap-2">
+                            <i class="fa-solid fa-clipboard-list text-agri-600"></i> পেমেন্ট করার পর করণীয়:
+                        </h4>
+                        <ol class="list-decimal list-outside ml-6 space-y-4 text-gray-700 text-lg font-medium">
+                            <li>উপরে দেওয়া নম্বরে সঠিক এমাউন্ট <strong>Send Money</strong> করুন।</li>
+                            <li>পেমেন্ট সফল হলে, যে নম্বর থেকে টাকা পাঠিয়েছেন সেই নম্বরটি এবং ট্রানজেকশন আইডি (TrxID) সেভ রাখুন।</li>
+                            <li>নিচের হোয়াটসঅ্যাপ বাটনে ক্লিক করে আমাদের মেসেজ দিন এবং আপনার নাম, নম্বর ও পেমেন্টের স্ক্রিনশট পাঠিয়ে কনফার্ম করুন।</li>
+                        </ol>
+                        
+                        <div class="mt-10 text-center">
+                            <a href="https://wa.me/8801515256943" target="_blank" class="inline-flex items-center justify-center gap-3 w-full sm:w-auto bg-[#25D366] text-white px-8 py-4 rounded-full font-bold text-xl hover:bg-[#1fbc5b] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+                                <i class="fa-brands fa-whatsapp text-3xl"></i> পেমেন্ট কনফার্ম করতে মেসেজ দিন
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Footer / Contact -->
+    <footer id="contact" class="bg-agri-900 text-agri-50 pt-16 pb-8 border-t-8 border-agri-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
+                <!-- Brand -->
+                <div class="flex flex-col items-center md:items-start">
+                    <a href="#" class="flex items-center gap-3 mb-4">
+                        <img src="logo.jpg" alt="কৃষিবিদ পাঠশালা লোগো" class="w-14 h-14 object-contain rounded-full bg-white p-1 shadow-md" onerror="this.src='https://placehold.co/100x100/27ae60/ffffff?text=Logo'">
+                        <span class="font-bold text-3xl text-white">কৃষিবিদ পাঠশালা</span>
+                    </a>
+                    <p class="text-agri-200 text-lg mt-2">
+                        কৃষি বিষয়ক ক্যারিয়ার গড়ার নির্ভরযোগ্য মাধ্যম। সঠিক গাইডলাইন নিয়ে আমরা আছি আপনার পাশে।
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div class="flex flex-col items-center md:items-start md:pl-10">
+                    <h4 class="text-sun-400 text-xl font-bold mb-6 border-b-2 border-sun-400 pb-2 inline-block">প্রয়োজনীয় লিংক</h4>
+                    <ul class="space-y-3 text-lg">
+                        <li><a href="#home" class="hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-sm text-sun-400"></i> হোম</a></li>
+                        <li><a href="#instructor" class="hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-sm text-sun-400"></i> ইনস্ট্রাক্টর</a></li>
+                        <li><a href="#courses" class="hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-sm text-sun-400"></i> কোর্সসমূহ</a></li>
+                        <li><a href="#books" class="hover:text-white transition-colors flex items-center gap-2"><i class="fa-solid fa-angle-right text-sm text-sun-400"></i> বইসমূহ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="flex flex-col items-center md:items-start">
+                    <h4 class="text-sun-400 text-xl font-bold mb-6 border-b-2 border-sun-400 pb-2 inline-block">যোগাযোগের ঠিকানা</h4>
+                    <ul class="space-y-5 w-full max-w-xs">
+                        <li class="flex items-center justify-center md:justify-start gap-4 bg-agri-800 p-4 rounded-xl border border-agri-700 shadow-sm">
+                            <i class="fa-brands fa-whatsapp text-[#25D366] text-3xl"></i>
+                            <div class="text-left">
+                                <span class="block text-sm text-agri-300">WhatsApp</span>
+                                <a href="https://wa.me/8801515256943" target="_blank" class="text-white font-bold text-xl hover:text-[#25D366] transition-colors">01515256943</a>
+                            </div>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start gap-4 p-2 pl-4">
+                            <i class="fa-solid fa-location-dot text-sun-400 text-2xl"></i>
+                            <div class="text-left">
+                                <span class="block text-sm text-agri-300">লোকেশন</span>
+                                <span class="text-white font-bold text-lg">টাঙ্গাইল</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-agri-800 pt-8 text-center text-base text-agri-300 flex flex-col md:flex-row justify-between items-center">
+                <p>&copy; ২০২৬ কৃষিবিদ পাঠশালা। সর্বস্বত্ব সংরক্ষিত।</p>
+                <p class="mt-2 md:mt-0">আপনার সফলতার অপেক্ষায় <i class="fa-solid fa-heart text-red-500 mx-1"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 8. Floating Sticky WhatsApp Button -->
+    <a href="https://wa.me/8801515256943" target="_blank" rel="noopener noreferrer" class="whatsapp-btn fixed bottom-6 right-6 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-[0_4px_15px_rgba(37,211,102,0.5)] hover:scale-110 transition-transform z-50 group cursor-pointer border-2 border-white">
+        <i class="fa-brands fa-whatsapp"></i>
+        <!-- Tooltip -->
+        <span class="absolute -top-12 right-0 bg-gray-900 text-white text-sm font-bold px-4 py-2 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            আমাদের মেসেজ দিন
+            <!-- Arrow -->
+            <svg class="absolute text-gray-900 h-2 w-full left-0 top-full" x="0px" y="0px" viewBox="0 0 255 255" xml:space="preserve"><polygon class="fill-current" points="0,0 127.5,127.5 255,0"/></svg>
+        </span>
+    </a>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const links = menu.querySelectorAll('a');
+
+            // Toggle mobile menu
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                
+                const icon = btn.querySelector('i');
+                if(menu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                }
+            });
+
+            // Close mobile menu when a link is clicked
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                    const icon = btn.querySelector('i');
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
